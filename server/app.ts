@@ -1,14 +1,15 @@
-// import http = require('http');
-// import * as url from 'url';
-// // const count = require('./count');
-// import count = require('./count'); // ok
+import http = require('http');
+import * as url from 'url';
+import count = require('./count'); // ok
+// const count = require('./count');
 
-// const server = http.createServer((req, res) => {
-//   const urlParse = url.parse(req.url, true, true);
-//   console.log(count());
-//   res.end();
-// });
-// server.listen(8000);
+const server: http.Server = http.createServer((req: http.IncomingMessage, res: http.ServerResponse): void => {
+  const urlParse: url.Url = url.parse(req.url, true, true);
+  console.log(urlParse);
+  console.log(count());
+  res.end();
+});
+server.listen(8000);
 // ok
 // =============================
 //
